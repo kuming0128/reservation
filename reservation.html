@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feebees創始款限量色預約體驗 - 12月馬拉松展</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #252525 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .brand-logo {
+            max-height: 80px;
+            width: auto;
+        }
+
+        .expo-logo {
+            max-height: 80px;
+            width: auto;
+        }
+
+        .expo-info {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .expo-info h3 {
+            color: #FFD700;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .expo-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .expo-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .expo-detail-item strong {
+            color: #FFD700;
+            min-width: 60px;
+        }
+
+        .expo-detail-item span {
+            color: #fff;
+            flex: 1;
+        }
+
+        .important-notice {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.15));
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .important-notice strong {
+            color: #FFD700;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .important-notice p {
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .booth-section {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .booth-section h3 {
+            color: #FFD700;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .booth-numbers {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .booth-number {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 15px;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .booth-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .booth-image-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .booth-image-card h4 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .booth-image-card img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .product-intro {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6347 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .header .subtitle {
+            font-size: 20px;
+            color: #B399DC;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            min-width: 100px;
+        }
+
+        .countdown-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FFD700;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        .limited-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF0000, #FF4500);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .color-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .color-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .color-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .color-card.selected {
+            border-color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .color-preview {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .color-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 5px;
+        }
+
+        .color-stock {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .form-section {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            color: #FFD700;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FFD700;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-select option {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .bonus-info {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .bonus-info h3 {
+            color: #FFD700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .bonus-info p {
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border: none;
+            border-radius: 15px;
+            color: #000;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .success-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .popup-content {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+            border: 2px solid #FFD700;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .popup-content h2 {
+            color: #FFD700;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .popup-content p {
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .ticket-container {
+            margin: 20px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+            border-radius: 20px;
+            border: 3px solid #FFD700;
+            display: inline-block;
+            min-width: 300px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .ticket-header {
+            color: #000;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .ticket-number {
+            color: #000;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            border: 2px dashed #FFD700;
+        }
+
+        .ticket-order {
+            color: #666;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .ticket-info {
+            color: #333;
+            font-size: 14px;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .reservation-number {
+            font-size: 24px;
+            color: #FFD700;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+        }
+
+            @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .brand-logo, .expo-logo {
+                max-height: 60px;
+            }
+            
+            .expo-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown-item {
+                padding: 15px 20px;
+                min-width: 80px;
+            }
+            
+            .countdown-number {
+                font-size: 28px;
+            }
+            
+            .color-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏃 Feebees創始款限量色預約體驗</h1>
+            <div class="subtitle">12月馬拉松展 獨家限量發售</div>
+            <div class="limited-badge">⚡ 限量發售 ⚡</div>
+            
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <div class="countdown-label">天</div>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <div class="countdown-label">時</div>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <div class="countdown-label">分</div>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <div class="countdown-label">秒</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h3 style="color: #FFD700; font-size: 22px; font-weight: bold; margin-bottom: 15px;">選擇你要的新色鞋款</h3>
+        </div>
+        <div class="color-showcase">
+            <div class="color-card" data-color="purple" data-color-name="電光紫">
+                <img src="4 colors shoes/創始款_紫.jpg" alt="電光紫" class="color-preview">
+                <div class="color-name">電光紫</div>
+                <div class="color-stock">剩餘: <span id="stock-purple">50</span> 雙</div>
+            </div>
+            <div class="color-card" data-color="blue" data-color-name="深海藍">
+                <img src="4 colors shoes/創始款_藍.jpg" alt="深海藍" class="color-preview">
+                <div class="color-name">深海藍</div>
+                <div class="color-stock">剩餘: <span id="stock-blue">50</span> 雙</div>
+            </div>
+            <div class="color-card" data-color="gold" data-color-name="流金">
+                <img src="4 colors shoes/創始款_金.jpg" alt="流金" class="color-preview">
+                <div class="color-name">流金</div>
+                <div class="color-stock">剩餘: <span id="stock-gold">50</span> 雙</div>
+            </div>
+            <div class="color-card" data-color="silver" data-color-name="銀河">
+                <img src="4 colors shoes/創始款_銀.jpg" alt="銀河" class="color-preview">
+                <div class="color-name">銀河</div>
+                <div class="color-stock">剩餘: <span id="stock-silver">50</span> 雙</div>
+            </div>
+        </div>
+
+        <div class="product-intro">
+            <h3 style="color: #FFD700; font-size: 24px; margin-bottom: 20px; text-align: center;">✨ Feebees Sock Sneakers 創始款赤足襪鞋</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; margin-bottom: 30px;">
+                <div>
+                    <p style="color: #fff; line-height: 1.8; margin-bottom: 15px;">
+                        創始款赤足襪鞋，長距離跑步時，鞋面舒適不磨腳、可適應各種腳型。鞋底提供適當保護與緩衝的同時，保有絕佳的赤足腳感。
+                    </p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
+                        <span style="background: rgba(255, 215, 0, 0.2); padding: 8px 15px; border-radius: 20px; font-size: 14px; color: #FFD700;">赤足</span>
+                        <span style="background: rgba(255, 215, 0, 0.2); padding: 8px 15px; border-radius: 20px; font-size: 14px; color: #FFD700;">輕量</span>
+                        <span style="background: rgba(255, 215, 0, 0.2); padding: 8px 15px; border-radius: 20px; font-size: 14px; color: #FFD700;">包覆</span>
+                        <span style="background: rgba(255, 215, 0, 0.2); padding: 8px 15px; border-radius: 20px; font-size: 14px; color: #FFD700;">彈性</span>
+                        <span style="background: rgba(255, 215, 0, 0.2); padding: 8px 15px; border-radius: 20px; font-size: 14px; color: #FFD700;">訓練跑</span>
+                    </div>
+                    <a href="https://www.feebees.com.tw/products/feebees-sock-sneakers-10-4" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">
+                        了解更多產品詳情 →
+                    </a>
+                </div>
+                <div style="text-align: center;">
+                    <div style="background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 20px;">
+                        <p style="color: #999; font-size: 14px; margin-bottom: 10px;">產品特色</p>
+                        <ul style="color: #fff; text-align: left; line-height: 2;">
+                            <li>✓ 舒適不磨腳的鞋面設計</li>
+                            <li>✓ 適應各種腳型</li>
+                            <li>✓ 適當保護與緩衝</li>
+                            <li>✓ 絕佳的赤足腳感</li>
+                            <li>✓ 適合長距離跑步</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bonus-info">
+            <h3>🎁 預約好禮</h3>
+            <p style="font-size: 20px; font-weight: bold; margin: 15px 0;">
+                前 50 名預約者，現場領取時可獲得「流動襪一雙」<br>
+                <span style="color: #FFD700; font-size: 24px; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">價值 480 元</span>
+            </p>
+        </div>
+
+        <div class="price-info" style="background: linear-gradient(135deg, rgba(255, 68, 68, 0.2), rgba(255, 140, 0, 0.2)); border: 2px solid rgba(255, 68, 68, 0.5); border-radius: 20px; padding: 25px; margin-bottom: 30px; text-align: center;">
+            <h3 style="color: #FF4444; font-size: 28px; font-weight: bold; margin-bottom: 10px;">💰 展場價特惠</h3>
+            <p style="color: #fff; font-size: 32px; font-weight: bold; margin: 10px 0;">NT$ 2,800</p>
+            <p style="color: #FFD700; font-size: 16px; font-weight: 600; margin-top: 10px;">售完為止</p>
+        </div>
+
+        <div class="form-section">
+            <form id="reservationForm">
+                <div class="form-group">
+                    <label class="form-label">選擇顏色 *</label>
+                    <div class="error-message" id="color-error">請選擇一個顏色</div>
+                    <input type="hidden" id="selectedColor" name="color" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">姓名 *</label>
+                    <input type="text" class="form-input" id="name" name="name" placeholder="請輸入您的姓名" required>
+                    <div class="error-message" id="name-error">請輸入姓名</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">手機號碼 *</label>
+                    <input type="tel" class="form-input" id="phone" name="phone" placeholder="0910123456" pattern="[0-9]{10}" maxlength="10" required>
+                    <div class="error-message" id="phone-error">請輸入正確的手機號碼格式 (10位數字，例如: 0910123456)</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email *</label>
+                    <input type="email" class="form-input" id="email" name="email" placeholder="your.email@example.com" required>
+                    <div class="error-message" id="email-error">請輸入正確的Email格式</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">尺寸 *</label>
+                    <select class="form-select" id="size" name="size" required>
+                        <option value="">請選擇尺寸</option>
+                        <option value="25#">25#</option>
+                        <option value="26#">26#</option>
+                        <option value="27#">27#</option>
+                        <option value="28#">28#</option>
+                    </select>
+                    <div class="error-message" id="size-error">請選擇尺寸</div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">立即預約</button>
+            </form>
+        </div>
+
+        <div class="logo-section">
+            <img src="4 colors shoes/Feebees _logo.jpg" alt="Feebees Logo" class="brand-logo">
+            <img src="4 colors shoes/LOGO.jpg" alt="馬拉松博覽會 Logo" class="expo-logo">
+        </div>
+
+        <div class="expo-info">
+            <h3>🏃 2025 馬拉松博覽會</h3>
+            <div class="expo-details">
+                <div class="expo-detail-item">
+                    <strong>📅 時間：</strong>
+                    <span>2025年12月18日(四) - 19日(五) 12PM~8PM<br>2025年12月20日(六) 10AM-6PM</span>
+                </div>
+                <div class="expo-detail-item">
+                    <strong>📍 地點：</strong>
+                    <span>花博爭豔館<br>台北市中山區玉門街 1 號</span>
+                </div>
+            </div>
+            <div class="important-notice">
+                <strong>⚠️ 重要說明</strong>
+                <p>現場以有預約者為資格，但是以現場報到為選購順序。請於展覽期間攜帶您的預約號碼牌至現場報到，依報到順序進行選購。</p>
+            </div>
+        </div>
+
+        <div class="booth-section">
+            <h3>📍 攤位資訊</h3>
+            <div class="booth-numbers">
+                <div class="booth-number">攤位 247</div>
+                <div class="booth-number">攤位 249</div>
+                <div class="booth-number">攤位 251</div>
+            </div>
+            <div class="booth-images">
+                <div class="booth-image-card">
+                    <h4>攤位照片</h4>
+                    <img src="4 colors shoes/booth.jpg" alt="攤位照片" style="max-height: 400px; object-fit: contain;">
+                </div>
+                <div class="booth-image-card">
+                    <h4>攤位位置地圖</h4>
+                    <img src="4 colors shoes/position.jpg" alt="攤位位置地圖" style="max-height: 400px; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="success-popup" id="successPopup">
+        <div class="popup-content">
+            <h2>✅ 預約成功！</h2>
+            <p style="color: #FFD700; font-size: 20px; font-weight: bold; margin-bottom: 20px;">
+                Feebees 2025 馬拉松博覽會創始款襪鞋 限量色預定
+            </p>
+            <div class="ticket-container" id="ticketContainer">
+                <div class="ticket-header">預約號碼牌</div>
+                <div class="ticket-number" id="ticketNumber"></div>
+                <div class="ticket-order" id="ticketOrder"></div>
+                <div class="ticket-info" id="ticketInfo"></div>
+            </div>
+            <p style="font-size: 12px; color: #999; margin-top: 15px;">
+                請於展覽期間攜帶此號碼牌至現場報到<br>
+                選購順序以現場報到時間為準
+            </p>
+            <div style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
+                <button class="submit-btn" onclick="goToSuccessPage()" style="flex: 1; min-width: 150px; padding: 15px; background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; font-weight: bold;">查看完整資訊 →</button>
+                <button class="submit-btn" onclick="window.print()" style="flex: 1; min-width: 120px; padding: 15px;">列印號碼牌</button>
+                <button class="submit-btn" onclick="closePopup()" style="flex: 1; min-width: 120px; padding: 15px; background: rgba(255,255,255,0.2); color: white;">稍後查看</button>
+            </div>
+            <p style="font-size: 11px; color: #999; margin-top: 15px; text-align: center;">
+                建議點擊「查看完整資訊」以保存您的預約資料
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 設定展覽日期（2025年12月18日 12:00 PM）
+        const exhibitionDate = new Date('2025-12-18T12:00:00').getTime();
+        
+        // 倒數計時
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = exhibitionDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<div style="color: #FFD700; font-size: 24px;">展覽已開始！</div>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 顏色選擇
+        const colorCards = document.querySelectorAll('.color-card');
+        let selectedColor = null;
+
+        colorCards.forEach(card => {
+            card.addEventListener('click', function() {
+                colorCards.forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedColor = this.dataset.color;
+                document.getElementById('selectedColor').value = selectedColor;
+                document.getElementById('color-error').style.display = 'none';
+            });
+        });
+
+        // 從 localStorage 載入預約數據
+        function loadReservations() {
+            const reservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+            const colorCounts = { purple: 0, blue: 0, gold: 0, silver: 0 };
+            
+            reservations.forEach(res => {
+                if (colorCounts[res.color] !== undefined) {
+                    colorCounts[res.color]++;
+                }
+            });
+
+            // 更新庫存顯示（假設每色50雙）
+            document.getElementById('stock-purple').textContent = Math.max(0, 50 - colorCounts.purple);
+            document.getElementById('stock-blue').textContent = Math.max(0, 50 - colorCounts.blue);
+            document.getElementById('stock-gold').textContent = Math.max(0, 50 - colorCounts.gold);
+            document.getElementById('stock-silver').textContent = Math.max(0, 50 - colorCounts.silver);
+            
+            // 移除預約人數顯示（增加神秘感）
+            // document.getElementById('total-reservations').textContent = reservations.length;
+        }
+
+        loadReservations();
+
+        // 表單驗證
+        function validateForm() {
+            let isValid = true;
+
+            if (!selectedColor) {
+                document.getElementById('color-error').style.display = 'block';
+                isValid = false;
+            }
+
+            const name = document.getElementById('name').value.trim();
+            if (!name) {
+                document.getElementById('name-error').style.display = 'block';
+                isValid = false;
+            }
+
+            const phone = document.getElementById('phone').value.trim();
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(phone)) {
+                document.getElementById('phone-error').style.display = 'block';
+                isValid = false;
+            }
+
+            const email = document.getElementById('email').value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById('email-error').style.display = 'block';
+                isValid = false;
+            }
+
+            const size = document.getElementById('size').value;
+            if (!size) {
+                document.getElementById('size-error').style.display = 'block';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // 清除錯誤訊息
+        document.querySelectorAll('.form-input, .form-select').forEach(input => {
+            input.addEventListener('input', function() {
+                const errorId = this.id.replace(/(purple|blue|gold|silver|name|phone|email|size)/, '$1-error');
+                const errorEl = document.getElementById(errorId);
+                if (errorEl) errorEl.style.display = 'none';
+            });
+        });
+
+        // 生成預約編號
+        function generateReservationNumber() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const random = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+            return `MR${year}${month}${day}-${random}`;
+        }
+
+        // 表單提交
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 清除所有錯誤訊息
+            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+
+            if (!validateForm()) {
+                return;
+            }
+
+            // 檢查庫存
+            const reservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+            const colorCounts = { purple: 0, blue: 0, gold: 0, silver: 0 };
+            reservations.forEach(res => {
+                if (colorCounts[res.color] !== undefined) {
+                    colorCounts[res.color]++;
+                }
+            });
+
+            if (colorCounts[selectedColor] >= 50) {
+                alert('此顏色已預約額滿，請選擇其他顏色');
+                return;
+            }
+
+            // 檢查是否重複預約（同一手機號碼）
+            const phone = document.getElementById('phone').value.trim();
+            const existingReservation = reservations.find(r => r.phone === phone);
+            if (existingReservation) {
+                if (!confirm('此手機號碼已有預約記錄，確定要重新預約嗎？')) {
+                    return;
+                }
+                // 移除舊預約
+                const index = reservations.findIndex(r => r.phone === phone);
+                reservations.splice(index, 1);
+            }
+
+            // 創建預約記錄
+            const reservationNumber = generateReservationNumber();
+            const reservationOrder = reservations.length + 1; // 預約順序
+            
+            const reservationData = {
+                number: reservationNumber,
+                order: reservationOrder, // 預約順序
+                name: document.getElementById('name').value.trim(),
+                phone: phone,
+                email: document.getElementById('email').value.trim(),
+                color: selectedColor,
+                colorName: document.querySelector(`[data-color="${selectedColor}"]`).dataset.colorName,
+                size: document.getElementById('size').value,
+                timestamp: new Date().toISOString(),
+                isTop50: reservations.length < 50
+            };
+
+            // 儲存到 localStorage
+            reservations.push(reservationData);
+            localStorage.setItem('reservations', JSON.stringify(reservations));
+
+            // 顯示成功彈窗
+            document.getElementById('ticketNumber').textContent = reservationNumber;
+            document.getElementById('ticketOrder').textContent = `預約順序：第 ${reservationOrder} 位`;
+            
+            // 明確告知前50名資格
+            let top50Message = '';
+            if (reservationData.isTop50) {
+                top50Message = `
+                    <div style="background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; padding: 20px; border-radius: 15px; margin: 15px 0; text-align: center; font-weight: bold; font-size: 18px; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);">
+                        🎉 恭喜！您是前50名預約者 🎉<br>
+                        <span style="font-size: 16px; margin-top: 10px; display: block;">現場領取時可獲得「流動襪一雙」（價值 480 元）</span>
+                    </div>
+                `;
+            } else {
+                top50Message = `
+                    <div style="background: rgba(255, 255, 255, 0.1); color: #999; padding: 15px; border-radius: 10px; margin: 15px 0; text-align: center; font-size: 14px;">
+                        很遺憾，您不在前50名預約者名單中<br>
+                        但仍可於展覽現場購買限量鞋款
+                    </div>
+                `;
+            }
+            
+            document.getElementById('ticketInfo').innerHTML = `
+                ${top50Message}
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <div><strong>姓名：</strong>${reservationData.name}</div>
+                    <div><strong>顏色：</strong>${reservationData.colorName}</div>
+                    <div><strong>尺寸：</strong>${reservationData.size}</div>
+                </div>
+            `;
+            document.getElementById('successPopup').style.display = 'flex';
+            
+            // 發送 Email 通知
+            sendEmailNotification(reservationData, reservationOrder);
+
+            // 更新庫存顯示
+            loadReservations();
+
+            // 重置表單
+            document.getElementById('reservationForm').reset();
+            colorCards.forEach(c => c.classList.remove('selected'));
+            selectedColor = null;
+            
+            // 滾動到頂部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // 可選：3秒後自動跳轉到確認頁面（如果用戶沒有點擊按鈕）
+            setTimeout(function() {
+                // 如果彈窗還在顯示，提示用戶可以查看完整資訊
+                if (document.getElementById('successPopup').style.display === 'flex') {
+                    // 不自動跳轉，讓用戶自己選擇
+                }
+            }, 3000);
+        });
+
+        function closePopup() {
+            document.getElementById('successPopup').style.display = 'none';
+        }
+
+        function goToSuccessPage() {
+            const reservationNumber = document.getElementById('ticketNumber').textContent;
+            if (reservationNumber && reservationNumber.trim() !== '') {
+                // 關閉彈窗
+                document.getElementById('successPopup').style.display = 'none';
+                // 跳轉到成功頁面
+                window.location.href = `success.html?number=${reservationNumber}`;
+            } else {
+                alert('預約編號不存在，請重新預約');
+            }
+        }
+        
+        // 預約成功後自動跳轉（可選，取消註解以啟用）
+        /*
+        function autoRedirectToSuccess() {
+            const reservationNumber = document.getElementById('reservationNumber').textContent;
+            if (reservationNumber && reservationNumber.trim() !== '') {
+                setTimeout(function() {
+                    window.location.href = `success.html?number=${reservationNumber}`;
+                }, 2000); // 2秒後自動跳轉
+            }
+        }
+        */
+
+        // 發送 Email 通知
+        function sendEmailNotification(reservationData, order) {
+            const subject = encodeURIComponent('Feebees 限量跑鞋預約成功通知');
+            const body = encodeURIComponent(`親愛的 ${reservationData.name}，\n\n您的預約已成功！\n\n預約編號：${reservationData.number}\n預約順序：第 ${order} 位\n顏色：${reservationData.colorName}\n尺寸：${reservationData.size}\n\n請於展覽期間攜帶您的預約號碼牌至現場報到。\n選購順序以現場報到時間為準。\n\n${reservationData.isTop50 ? '🎁 恭喜！您是前50名預約者，現場領取時可獲得「流動襪一雙」（價值 480 元）！' : '很遺憾，您不在前50名預約者名單中，但仍可於展覽現場購買限量鞋款。'}\n\n展場價特惠：NT$ 2,800（售完為止）\n\n展覽資訊：\n時間：2025年12月18日(四) - 19日(五) 12PM~8PM，2025年12月20日(六) 10AM-6PM\n地點：花博爭豔館，台北市中山區玉門街 1 號\n攤位號碼：247、249、251\n\n感謝您的預約！\nFeebees 團隊`);
+            
+            // 方法1: 使用 mailto 連結（開啟用戶的郵件客戶端）
+            // 注意：這需要用戶有設定郵件客戶端，且可能不會自動發送
+            const mailtoLink = `mailto:${reservationData.email}?subject=${subject}&body=${body}`;
+            
+            // 方法2: 使用 EmailJS（需要註冊 https://www.emailjs.com/）
+            // 如需使用 EmailJS，請取消以下註解並設定您的服務
+            /*
+            if (typeof emailjs !== 'undefined') {
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                    to_email: reservationData.email,
+                    to_name: reservationData.name,
+                    reservation_number: reservationData.number,
+                    color: reservationData.colorName,
+                    size: reservationData.size,
+                    is_top50: reservationData.isTop50 ? '是' : '否'
+                }).then(function(response) {
+                    console.log('Email 發送成功', response.status, response.text);
+                }, function(error) {
+                    console.log('Email 發送失敗', error);
+                });
+            }
+            */
+            
+            // 方法3: 後端 API 發送（推薦用於正式環境）
+            // 可以透過後端 API 發送郵件，這裡先記錄資料
+            console.log('Email 通知資料:', {
+                to: reservationData.email,
+                subject: decodeURIComponent(subject),
+                body: decodeURIComponent(body),
+                mailtoLink: mailtoLink
+            });
+            
+            // 提示用戶可以複製 Email 內容
+            // 實際部署時，建議使用後端 API 或 EmailJS 自動發送
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預約查詢 - 限量跑鞋</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #252525 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            color: #999;
+            font-size: 16px;
+        }
+
+        .search-section {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            color: #FFD700;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FFD700;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border: none;
+            border-radius: 10px;
+            color: #000;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        .result-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            text-align: center;
+        }
+
+        .reservation-info {
+            margin-bottom: 30px;
+        }
+
+        .reservation-number {
+            font-size: 28px;
+            color: #FFD700;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .info-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .info-label {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .qrcode-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .top50-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .error-message {
+            color: #ff4444;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            padding: 15px;
+            background: rgba(255, 68, 68, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 68, 68, 0.3);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #FFA500;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .reservation-number {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 預約查詢</h1>
+            <p>輸入您的手機號碼查詢預約資訊</p>
+        </div>
+
+        <div class="search-section">
+            <form id="searchForm">
+                <div class="form-group">
+                    <label class="form-label">手機號碼</label>
+                    <input type="tel" class="form-input" id="searchPhone" placeholder="0910123456" pattern="[0-9]{10}" maxlength="10" required>
+                </div>
+                <button type="submit" class="submit-btn">查詢預約</button>
+            </form>
+            <div class="error-message" id="errorMessage">找不到此手機號碼的預約記錄</div>
+        </div>
+
+        <div class="result-section" id="resultSection">
+            <div class="reservation-info">
+                <div class="reservation-number" id="resultNumber"></div>
+                <div class="info-item">
+                    <div class="info-label">姓名</div>
+                    <div class="info-value" id="resultName"></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">顏色</div>
+                    <div class="info-value" id="resultColor"></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">尺寸</div>
+                    <div class="info-value" id="resultSize"></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">預約時間</div>
+                    <div class="info-value" id="resultTime"></div>
+                </div>
+                <div id="top50Badge" class="top50-badge" style="display: none;">
+                    🎁 前50名預約者 - 可獲得流動襪一雙
+                </div>
+            </div>
+            <div class="qrcode-container">
+                <canvas id="qrcode"></canvas>
+            </div>
+            <p style="color: #999; margin-top: 20px; font-size: 14px;">
+                請於展覽當天攜帶此 QR Code 至現場領取<br>
+                攤位號碼：247、249、251<br>
+                地點：花博爭豔館，台北市中山區玉門街 1 號
+            </p>
+            <button class="submit-btn" onclick="window.print()" style="margin-top: 20px;">列印號碼牌</button>
+            <a href="reservation.html" class="back-link">← 返回預約頁面</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const searchPhone = document.getElementById('searchPhone').value.trim();
+            const reservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+            const reservation = reservations.find(r => r.phone === searchPhone);
+
+            if (!reservation) {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('resultSection').style.display = 'none';
+                return;
+            }
+
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('resultSection').style.display = 'block';
+
+            // 顯示預約資訊
+            document.getElementById('resultNumber').textContent = reservation.number;
+            document.getElementById('resultName').textContent = reservation.name;
+            document.getElementById('resultColor').textContent = reservation.colorName;
+            document.getElementById('resultSize').textContent = reservation.size;
+            document.getElementById('resultTime').textContent = new Date(reservation.timestamp).toLocaleString('zh-TW');
+
+            if (reservation.isTop50) {
+                document.getElementById('top50Badge').style.display = 'inline-block';
+            } else {
+                document.getElementById('top50Badge').style.display = 'none';
+            }
+
+            // 生成 QR Code
+            const qrData = JSON.stringify({
+                number: reservation.number,
+                name: reservation.name,
+                phone: reservation.phone,
+                color: reservation.colorName,
+                size: reservation.size,
+                date: new Date(reservation.timestamp).toLocaleDateString('zh-TW')
+            });
+
+            QRCode.toCanvas(document.getElementById('qrcode'), qrData, {
+                width: 200,
+                margin: 2,
+                color: {
+                    dark: '#000000',
+                    light: '#FFFFFF'
+                }
+            }, function (error) {
+                if (error) console.error(error);
+            });
+        });
+    </script>
+</body>
+</html>
+

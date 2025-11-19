@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預約成功 - Feebees 限量跑鞋</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #252525 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .success-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+
+        .success-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: bounce 1s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .success-header h1 {
+            font-size: 36px;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .success-header p {
+            font-size: 18px;
+            color: #B399DC;
+        }
+
+        .reservation-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .reservation-number {
+            font-size: 32px;
+            color: #FFD700;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .info-label {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .info-value {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .ticket-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .ticket-container {
+            display: inline-block;
+            padding: 40px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+            border-radius: 20px;
+            border: 3px solid #FFD700;
+            margin: 20px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            min-width: 350px;
+        }
+
+        .ticket-header {
+            color: #000;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .ticket-number-large {
+            color: #000;
+            font-size: 36px;
+            font-weight: bold;
+            margin: 25px 0;
+            padding: 25px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            border: 2px dashed #FFD700;
+        }
+
+        .ticket-order {
+            color: #666;
+            font-size: 18px;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .top50-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 20px 0;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .notice-section {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .notice-section h3 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .notice-section ul {
+            color: #fff;
+            line-height: 2;
+            padding-left: 20px;
+        }
+
+        .booth-section {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin-top: 30px;
+        }
+
+        .booth-section h3 {
+            color: #FFD700;
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .booth-numbers {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .booth-number {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 15px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .booth-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .booth-image-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .booth-image-card h4 {
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .booth-image-card img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .success-header h1 {
+                font-size: 28px;
+            }
+            
+            .reservation-number {
+                font-size: 24px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-header">
+            <div class="success-icon">✅</div>
+            <h1>預約成功！</h1>
+            <p style="color: #FFD700; font-size: 22px; font-weight: bold; margin-top: 15px;">
+                Feebees 2025 馬拉松博覽會創始款襪鞋 限量色預定
+            </p>
+        </div>
+
+        <div class="reservation-card">
+            <div class="reservation-number" id="reservationNumber">載入中...</div>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">姓名</div>
+                    <div class="info-value" id="reservationName">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">顏色</div>
+                    <div class="info-value" id="reservationColor">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">尺寸</div>
+                    <div class="info-value" id="reservationSize">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">預約時間</div>
+                    <div class="info-value" id="reservationTime">-</div>
+                </div>
+            </div>
+
+            <div id="top50Badge" class="top50-badge" style="display: none;">
+                🎁 前50名預約者 - 可獲得流動襪一雙
+            </div>
+
+            <div class="ticket-section">
+                <h3 style="color: #FFD700; margin-bottom: 20px;">您的預約號碼牌</h3>
+                <p style="color: #999; margin-bottom: 20px;">請保存此號碼牌，展覽當天攜帶至現場報到</p>
+                <div class="ticket-container">
+                    <div class="ticket-header">預約號碼牌</div>
+                    <div class="ticket-number-large" id="ticketNumberLarge"></div>
+                    <div class="ticket-order" id="ticketOrderLarge"></div>
+                    <div class="ticket-info" id="ticketInfoLarge" style="color: #333; font-size: 14px; margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; line-height: 2;"></div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="window.print()">列印號碼牌</button>
+                <a href="reservation.html" class="btn btn-secondary">返回預約頁面</a>
+                <a href="confirmation.html" class="btn btn-secondary">查詢預約</a>
+            </div>
+
+            <div class="notice-section">
+                <h3>⚠️ 重要提醒</h3>
+                <ul>
+                    <li>請妥善保存此預約號碼牌</li>
+                    <li>現場以有預約者為資格，但是以現場報到為選購順序</li>
+                    <li>請於展覽期間攜帶您的預約號碼牌至現場報到</li>
+                    <li>展覽時間：2025年12月18日(四) - 19日(五) 12PM~8PM，2025年12月20日(六) 10AM-6PM</li>
+                    <li>展覽地點：花博爭豔館，台北市中山區玉門街 1 號</li>
+                    <li>攤位號碼：247、249、251</li>
+                </ul>
+            </div>
+
+            <div class="booth-section">
+                <h3>📍 攤位資訊</h3>
+                <div class="booth-numbers">
+                    <div class="booth-number">攤位 247</div>
+                    <div class="booth-number">攤位 249</div>
+                    <div class="booth-number">攤位 251</div>
+                </div>
+                <div class="booth-images">
+                    <div class="booth-image-card">
+                        <h4>攤位照片</h4>
+                        <img src="4 colors shoes/booth.jpg" alt="攤位照片" style="max-height: 300px; object-fit: contain;">
+                    </div>
+                    <div class="booth-image-card">
+                        <h4>攤位位置地圖</h4>
+                        <img src="4 colors shoes/position.jpg" alt="攤位位置地圖" style="max-height: 300px; object-fit: contain;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 從 URL 參數獲取預約編號
+        const urlParams = new URLSearchParams(window.location.search);
+        const reservationNumber = urlParams.get('number');
+
+        if (reservationNumber) {
+            // 從 localStorage 載入預約資料
+            const reservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+            const reservation = reservations.find(r => r.number === reservationNumber);
+
+            if (reservation) {
+                // 顯示預約資訊
+                document.getElementById('reservationNumber').textContent = reservation.number;
+                document.getElementById('reservationName').textContent = reservation.name;
+                document.getElementById('reservationColor').textContent = reservation.colorName;
+                document.getElementById('reservationSize').textContent = reservation.size;
+                document.getElementById('reservationTime').textContent = new Date(reservation.timestamp).toLocaleString('zh-TW');
+
+                if (reservation.isTop50) {
+                    document.getElementById('top50Badge').style.display = 'inline-block';
+                }
+
+                // 顯示號碼牌資訊
+                document.getElementById('ticketNumberLarge').textContent = reservation.number;
+                
+                // 計算預約順序（如果沒有 order 欄位，則根據時間排序計算）
+                let order = reservation.order;
+                if (!order) {
+                    const allReservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+                    const sortedReservations = allReservations.sort((a, b) => 
+                        new Date(a.timestamp) - new Date(b.timestamp)
+                    );
+                    order = sortedReservations.findIndex(r => r.number === reservation.number) + 1;
+                }
+                
+                document.getElementById('ticketOrderLarge').textContent = `預約順序：第 ${order} 位`;
+                
+                // 明確告知前50名資格
+                let top50Message = '';
+                if (reservation.isTop50) {
+                    top50Message = `
+                        <div style="background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center; font-weight: bold; font-size: 18px; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);">
+                            🎉 恭喜！您是前50名預約者 🎉<br>
+                            <span style="font-size: 16px; margin-top: 10px; display: block;">現場領取時可獲得「流動襪一雙」（價值 480 元）</span>
+                        </div>
+                    `;
+                } else {
+                    top50Message = `
+                        <div style="background: rgba(255, 255, 255, 0.1); color: #666; padding: 15px; border-radius: 10px; margin: 20px 0; text-align: center; font-size: 14px;">
+                            很遺憾，您不在前50名預約者名單中<br>
+                            但仍可於展覽現場購買限量鞋款
+                        </div>
+                    `;
+                }
+                
+                document.getElementById('ticketInfoLarge').innerHTML = `
+                    ${top50Message}
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                        <div><strong>姓名：</strong>${reservation.name}</div>
+                        <div><strong>顏色：</strong>${reservation.colorName}</div>
+                        <div><strong>尺寸：</strong>${reservation.size}</div>
+                        <div><strong>預約時間：</strong>${new Date(reservation.timestamp).toLocaleString('zh-TW')}</div>
+                    </div>
+                `;
+            } else {
+                document.getElementById('reservationNumber').textContent = '找不到預約記錄';
+            }
+        } else {
+            document.getElementById('reservationNumber').textContent = '無預約編號';
+        }
+    </script>
+</body>
+</html>
+

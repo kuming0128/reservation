@@ -234,7 +234,7 @@
                     <div class="info-value" id="resultName"></div>
                 </div>
                 <div class="info-item">
-                    <div class="info-label">顏色</div>
+                    <div class="info-label">預約顏色</div>
                     <div class="info-value" id="resultColor"></div>
                 </div>
                 <div class="info-item">
@@ -244,9 +244,6 @@
                 <div class="info-item">
                     <div class="info-label">預約時間</div>
                     <div class="info-value" id="resultTime"></div>
-                </div>
-                <div id="top50Badge" class="top50-badge" style="display: none;">
-                    🎁 前50名預約者 - 可獲得流動襪一雙
                 </div>
             </div>
             <div class="qrcode-container">
@@ -282,22 +279,38 @@
             // 顯示預約資訊
             document.getElementById('resultNumber').textContent = reservation.number;
             document.getElementById('resultName').textContent = reservation.name;
-            document.getElementById('resultColor').textContent = reservation.colorName;
+            
+            // 顯示預約顏色（支援複選）
+            let colorDisplay = '';
+            if (reservation.colorNames && Array.isArray(reservation.colorNames)) {
+                // 新格式：多個顏色
+                colorDisplay = reservation.colorNames.join('、');
+            } else if (reservation.colorName) {
+                // 向後兼容：單個顏色或已連接的字符串
+                colorDisplay = reservation.colorName;
+            } else if (reservation.color) {
+                // 舊格式：只有顏色代碼
+                const colorMap = {
+                    'silver': '太空銀',
+                    'blue': '太空藍',
+                    'pink': '太空粉',
+                    'purple': '電光紫',
+                    'gold': '流金'
+                };
+                colorDisplay = colorMap[reservation.color] || reservation.color;
+            }
+            document.getElementById('resultColor').textContent = colorDisplay || '未選擇';
+            
             document.getElementById('resultSize').textContent = reservation.size;
             document.getElementById('resultTime').textContent = new Date(reservation.timestamp).toLocaleString('zh-TW');
 
-            if (reservation.isTop50) {
-                document.getElementById('top50Badge').style.display = 'inline-block';
-            } else {
-                document.getElementById('top50Badge').style.display = 'none';
-            }
 
             // 生成 QR Code
             const qrData = JSON.stringify({
                 number: reservation.number,
                 name: reservation.name,
                 phone: reservation.phone,
-                color: reservation.colorName,
+                colors: colorDisplay, // 使用顯示的顏色字符串
                 size: reservation.size,
                 date: new Date(reservation.timestamp).toLocaleDateString('zh-TW')
             });
